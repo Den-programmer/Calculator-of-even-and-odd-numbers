@@ -7,7 +7,6 @@ namespace Calculator_of_even_and_odd_numbers
     {
         static void Main(string[] args)
         {
-
             static void ShowErrorMessage(string mes)
             {
                 Console.WriteLine(mes + " true/false");
@@ -38,6 +37,8 @@ namespace Calculator_of_even_and_odd_numbers
                 int minNumber;
                 int maxNumber;
 
+                int totalSummary = 0;
+
                 if (int.TryParse(minNumbStr, out minNumber) && int.TryParse(maxNumbStr, out maxNumber))
                 {
                     void CountNumbers(string numberType)
@@ -51,8 +52,13 @@ namespace Calculator_of_even_and_odd_numbers
                                 numbersList.Add(i);
                             }
                         }
+                        for (int j = 0; j <= numbersList.Count - 1; j++)
+                        {
+                            totalSummary += numbersList[j];
+                        }
                         Console.WriteLine("You've got " + numbersList.Count + " " + numberType + " " +
                             "numbers counted!");
+                        Console.WriteLine("The summary of it is: " + totalSummary);
                     }
                     if (numberType == "odd")
                     {
@@ -74,6 +80,8 @@ namespace Calculator_of_even_and_odd_numbers
             }
 
             RestartTheApp();
+
+            // You can do the summary of the counted numbers!
         }
     }
 }
